@@ -22,9 +22,9 @@ This is a simple java library which is used to read or write Mifare classic 1k c
 
 	reader.connectCard(null);
 	reader.getUID(); // Returns UID of the card which is placed on the readert.
-	reader.readCardUsingDefaultKey(1); Returns 16 bytes of array for success, Returns 2 bytes of array(63,00) for failure
-	reader.readCardBlock(authKeyData, readerUtil.getAuthCmdForkeyA(), 1); Returns 16 bytes of array for success, Returns 2 bytes of array(63,00) for failure
-	reader.writeDataIntoCard(authKeyData, readerUtil.getAuthCmdForkeyA(), 1, data); Returns 2 bytes of array(90,00) for success, Returns 2 bytes of array(63,00) for failure
+	reader.readCardUsingDefaultKey(1); // Returns 16 bytes of array for success, Returns 2 bytes of array(63,00) for failure
+	reader.readCardBlock(authKeyData, readerUtil.getAuthCmdForkeyA(), 1); // Returns 16 bytes of array for success, Returns 2 bytes of array(63,00) for failure
+	reader.writeDataIntoCard(authKeyData, readerUtil.getAuthCmdForkeyA(), 1, data); // Returns 2 bytes of array(90,00) for success, Returns 2 bytes of array(63,00) for failure
 	}
 
 ### About the ACR122U reader/writer
