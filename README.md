@@ -12,20 +12,19 @@ This is a simple java library which is used to read or write Mifare classic 1k c
 
 ### Example
  	public static void main(String []args) throws CardException {
-   PropertyConfigurator.configure("log4j.properties");
-   ACR122UReaderHelper reader = ACR122UReaderHelper.getInstance();
-   ACR122Util readerUtil = ACR122Util.getInstance();
-   
-   byte []authKeyData = new byte[]{(byte)0x01,(byte)0x02,(byte)0x03,(byte)0x04,(byte)0x05,(byte)0x06};
-   byte []data = new byte[]{(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,   (byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09};
-   
-   reader.connectReader();
-   
-   reader.connectCard(null);
-   reader.getUID(); // Returns UID of the card which is placed on the readert.
-   reader.readCardUsingDefaultKey(1); Returns 16 bytes of array for success, Returns 2 bytes of array(63,00) for failure
-   reader.readCardBlock(authKeyData, readerUtil.getAuthCmdForkeyA(), 1); Returns 16 bytes of array for success, Returns 2 bytes of array(63,00) for failure
-   reader.writeDataIntoCard(authKeyData, readerUtil.getAuthCmdForkeyA(), 1, data); Returns 2 bytes of array(90,00) for success, Returns 2 bytes of array(63,00) for failure
+   	ACR122UReaderHelper reader = ACR122UReaderHelper.getInstance();
+	ACR122Util readerUtil = ACR122Util.getInstance();
+
+	byte []authKeyData = new byte[]{(byte)0x01,(byte)0x02,(byte)0x03,(byte)0x04,(byte)0x05,(byte)0x06};
+	byte []data = new byte[]{(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,   (byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09,(byte)0x09};
+
+	reader.connectReader();
+
+	reader.connectCard(null);
+	reader.getUID(); // Returns UID of the card which is placed on the readert.
+	reader.readCardUsingDefaultKey(1); Returns 16 bytes of array for success, Returns 2 bytes of array(63,00) for failure
+	reader.readCardBlock(authKeyData, readerUtil.getAuthCmdForkeyA(), 1); Returns 16 bytes of array for success, Returns 2 bytes of array(63,00) for failure
+	reader.writeDataIntoCard(authKeyData, readerUtil.getAuthCmdForkeyA(), 1, data); Returns 2 bytes of array(90,00) for success, Returns 2 bytes of array(63,00) for failure
 	}
 
 ### About the ACR122U reader/writer
